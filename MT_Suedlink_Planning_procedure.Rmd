@@ -1,0 +1,54 @@
+---
+title: "MT_Data_SuedLink01"
+output: html_document
+date: "2023-01-31"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(readxl)
+library(janitor)
+library(tidyverse)
+library(ggplot2)
+library(kableExtra)
+library(labelled)
+library(sjlabelled)
+library(scales)
+library(modelsummary)
+library(ggmap)
+library(tidygeocoder)
+library(tigris)
+library(sf)
+library(htmltools)
+library(leaflet) 
+library(readxl)
+library(vistime)
+library(wiesbaden)
+library(fuzzyjoin)
+library(stringr)
+library(data.table)
+library(descr)
+library(qdap) ## can go if i do not need it
+library(stringb) ## can also go if see above
+library(quanteda)
+
+
+```
+
+
+
+```{r, echo=FALSE, include=FALSE}
+
+
+##getting the df
+df_SuedLink <- read_excel("data_raw/Data_mitBeteiligungsvariablen.xlsx", sheet = "R_Data")
+df_SuedLink_original <- df_SuedLink
+
+
+
+##fill all blank cells with NAs
+df_SuedLink <- df_SuedLink %>% mutate_all(na_if,"")
+
+
+```
